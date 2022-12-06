@@ -2,36 +2,24 @@
 """ENTER YOUR SOLUTION HERE!"""
 
 
-def Prime(n):  
-    for i in range(2,n//2+1):  
-        if(n%i==0):  
-            return(0)  
-    return(1)  
+def primes(number_of_primes):
+    list = []
 
+    if number_of_primes <= 0:
+        raise ValueError
 
+    count = 2
+    while number_of_primes != 0:
+        prime = True
 
+        for i in range(2, count):
+            if count % i == 0:
+                prime = False
 
-def primes(n):
-    
-    if n < 0:
-        raise ValueError("Sorry, no numbers below zero")
-        
-    N=n
-    i=2 
-    lst=[] 
-    while(1):  
-        if(Prime(i)):  
-            lst.append(i) 
-            if(len(lst)==N): 
-                break 
-        i+=1 
-    print("First "+str(N)+" Prime numbers are:",end="") 
-    print(*lst) 
+        if prime:
+            list.append(count)
+            number_of_primes -= 1
 
+        count += 1
 
-
-    return lst
-
-
-
-
+    return list
